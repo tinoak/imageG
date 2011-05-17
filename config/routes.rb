@@ -6,15 +6,16 @@ Appthee::Application.routes.draw do
     match '/about', :to => 'pages#about'
     match '/login', :to => 'pages#login'
     match '/signup', :to => 'users#new'
+    #   match '/signed' , :to => 'users#show'
      
 
     get "pages/home"
     get "pages/about"
     get "pages/login"
-    get "pages/signup"
-    get "users/new"
+    # get "pages/signup"
+    # get "users/show"
     
-    get "
+
 
 
 

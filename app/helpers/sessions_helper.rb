@@ -9,7 +9,7 @@ module SessionsHelper
     end
     
     def signed_in?
-        !@user.nil?
+        !@user.nil? && !@user.name.nil?
     end
     
 end

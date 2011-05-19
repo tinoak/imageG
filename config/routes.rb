@@ -3,10 +3,11 @@ Appthee::Application.routes.draw do
 
     resources :users
 
-    root :to => 'pages#home'
-    match '/about', :to => 'pages#about'
+    #root :to => 'pages#home'
+    root :to => 'pages#about'
     # match '/login', :to => 'pages#login'
     match '/signup', :to => 'users#new'
+    match '/myhome', :to => 'users#show'
     #   match '/signed' , :to => 'users#show'
      
     

@@ -28,8 +28,8 @@ class PhotosController < ApplicationController
     
     
     def show
-        
-        @photo = Photo.find(params[:id])
+        @user = User.find_by_id(session[:remember_token])
+        @photo = Photo.find(@user)
         @title = @photo.username
         @users = User.all
         
@@ -37,8 +37,9 @@ class PhotosController < ApplicationController
     
     
     def index
-        
-        @photos = Photo.where (:username => 'dean')
+        @user = User.find_by_id(session[:remember_token])
+        name = @user.name
+        @photos = Photo.where (:username => name)
 
     end
 

@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
     end
     
     def create
-        user = User.authenticate(params[:session][:username],
+        user = User.authenticate(params[:session][:name],
                                  params[:session][:password])
         if user.nil?
          flash.now[:error] = 'Invalid username/password combination.'
-         @title = 'mistake'
+         @title = 'mistake!'
          render 'new'
         
         else
@@ -22,7 +22,8 @@ class SessionsController < ApplicationController
     
     def destroy
         
-        
+        sign_out
+        redirect_to root_path
     end
 
 end

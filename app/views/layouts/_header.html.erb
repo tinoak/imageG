@@ -2,9 +2,18 @@
   <header>
    <nav class = "round">
     <ul>
-     <li><%= link_to "home", root_path %></li>
-     <li><%= link_to "about", about_path %></li>
-     <li><%= link_to "login", login_path %></li>
+     <% if signed_in? %>
+       <li><%= link_to "my photos", myphotos_path %></li>
+       <li><%= link_to "my matches", '#' %></li>
+       <li><%= link_to "my home", myhome_path %></li>
+       <li><%= link_to "  |  ", '#' %></li>
+     <% end %>
+     <li><%= link_to "about", root_path %></li>
+     <% if signed_in? %>
+     <li><%= link_to "sign out", signout_path, :method => :delete %></li>
+     <% else %>
+     <li><%= link_to "sign in", login_path %></li>
+     <% end %>
     </ul>
    </nav>
   </header>

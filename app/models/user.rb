@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     
     
     def has_password?(submitted_password)
-        encrypt_password == encrypt(submitted_password)
+        encrypted_password == encrypt(submitted_password)
     end
     
     def self.authenticate (name, submitted_password)
@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
     private
     
       def encrypt_password
-          self.encrypted_password = encrypt(self.password)
+          self.encrypted_password = encrypt(password)
       end
     
       def encrypt(string)

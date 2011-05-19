@@ -1,19 +1,25 @@
 Appthee::Application.routes.draw do
     
+
     resources :users
 
     root :to => 'pages#home'
     match '/about', :to => 'pages#about'
-    match '/login', :to => 'pages#login'
+    # match '/login', :to => 'pages#login'
     match '/signup', :to => 'users#new'
     #   match '/signed' , :to => 'users#show'
      
-
-    get "pages/home"
-    get "pages/about"
-    get "pages/login"
-    # get "pages/signup"
-    # get "users/show"
+    
+    resources :photos
+    
+    match '/myphotos', :to => 'photos#index'
+    match '/addphoto' , :to => 'photos#new'
+    
+    resources :sessions, :only => [:new, :create, :destroy]
+    
+    match '/login' , :to =>  'sessions#new'
+    match '/signout' , :to => 'sessions#destroy'
+    
     
 
 

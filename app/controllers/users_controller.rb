@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
  
     def new
-      @user = User.new
-      @title = "ImageGame : sign up!"
+        @user = User.new
+        @title = "ImageGame : sign up!"
     end
     
     def create

@@ -1,0 +1,21 @@
+<h1>Upload an Imagestring</h1>
+
+<%= form_for(@photo) do |f| %>
+
+ <div class='field'>
+  <%= f.label :imagestring %><br/>
+  <%= f.text_field :imagestring %>
+ </div>
+ 
+  <div class='field'>
+  <%= f.label :username %><br/>
+  <%= f.text_field :username %>
+ </div>
+ 
+  <div class='actions'>
+  <%= f.submit "Load Imagestring" %><br/>
+ </div>
+
+
+
+<% end %>

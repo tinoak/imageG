@@ -3,34 +3,41 @@ class PhotosController < ApplicationController
     def new
         
       @photo = Photo.new
-      @title = "ImageGame : load photo"
+      @user = User.find_by_id(session[:remember_token])
+        # @photo.username = user.name
+      @title = "ImageGame : upload photo"
+        #@title = user.name
         
     end
     
     def create
         
+        #@photo = Photo.new(params[:photo])
+        user = User.find_by_id(session[:remember_token])
+        name = user.name
         @photo = Photo.new(params[:photo])
-        username = @photo.username
-        user = User.find_by_name(username)
-        if user != nil
+        @photo.username = name
+        #username = @photo.username
+        # user = User.find_by_name(username)
+        #if user != nil
         if @photo.save
-            redirect_to @photo
-            # else
-            # @title = "ImageGame : Upload a Photo"
-            # render 'new'
+           redirect_to '/myphotos'
+             else
+             @title = "ImageGame : upload a photo"
+             render 'new'
         end
-            else
-            @title = "ImageGame : Upload a Photo"
-            render 'new'
-        end
+        # else
+        # @title = user.name
+        #  render 'new'
+        #end
         
     end
     
     
     def show
-        @user = User.find_by_id(session[:remember_token])
-        @photo = Photo.find(@user)
-        @title = @photo.username
+        #user = User.find_by_id(session[:remember_token])
+        @photo = Photo.find(26)
+        # @title = @photo.username
         @users = User.all
         
     end
@@ -40,6 +47,7 @@ class PhotosController < ApplicationController
         @user = User.find_by_id(session[:remember_token])
         name = @user.name
         @photos = Photo.where (:username => name)
+        @title = "ImageGame : my photo collection"
 
     end
 

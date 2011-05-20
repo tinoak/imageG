@@ -36,8 +36,9 @@ class PhotosController < ApplicationController
     
     
     def show
-        #user = User.find_by_id(session[:remember_token])
-        @photo = Photo.find(26)
+        @user = User.find_by_id(session[:remember_token])
+        @photo = Photo.find_by_id(params[:id])
+        # @photo = Photo.find(2)
         # @title = @photo.username
         @users = User.all
         

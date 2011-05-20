@@ -4,7 +4,7 @@
  <table>  
     <% @photos.each do |photo| %>
     <tr>
-     <td><%= photo.imagestring %></td>
+     <td><%= link_to photo.imagestring, photo %></td>
     </tr>
    <% end %>
 

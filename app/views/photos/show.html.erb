@@ -1,15 +1,13 @@
 
-   <h1>Now select a friend to begin an ImageMatch</h1>
-   <p>This is your photo: <%= @photo.imagestring %></p>
+   <h1>This is your photo: </h1>
+   <p><%= @photo.imagestring %></p>
    
    <table>
-   <p>Available freinds:</p>
+   <p>Available friends:</p>
    <% @users.each do |user| %>
     <tr>
-     <td><%= user.name %></td>
+     <td><%= link_to user.name, user_path(user) %></td>
     </tr>
    <% end %>
    </table>
    
-
- 

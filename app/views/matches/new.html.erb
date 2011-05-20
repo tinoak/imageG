@@ -1,0 +1,34 @@
+<h1>Start a new Match:</h1>
+
+
+<%= form_for(@match) do |f| %>
+
+   <table>
+   <p>Available friends:</p>
+   <% @users.each do |user| %>
+   <%= username = user.name %>
+    <tr>
+     <td><%= link_to user.name, user_path(user) %></td>
+     <td><%= f.radio_button (:enduser, username) %></td>
+    </tr>
+   <% end %>
+   </table>
+   
+   <p>Available photos:</p>
+   <table>  
+    <% @photos.each do |photo| %>
+    <%= photoid = photo.id %>
+    <tr>
+     <td><%= link_to photo.imagestring, photo %></td>
+     <td><%= f.radio_button (:startphoto, photoid) %></td>
+    </tr>
+   <% end %>
+
+</table>
+
+<%= f.submit "Submit" %><br/>
+
+<% end %>
+
+
+

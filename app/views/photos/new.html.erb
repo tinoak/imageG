@@ -1,5 +1,8 @@
 <h1>Upload an Imagestring</h1>
 
+<% user = User.find_by_id(session[:remember_token]) %>
+<%= user.name %>
+
 <%= form_for(@photo) do |f| %>
 
  <div class='field'>
@@ -11,6 +14,5 @@
   <%= f.submit "Load Imagestring" %><br/>
  </div>
 
-
-
 <% end %>
+

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  startphoto: 1
+  endphoto: 1
+  startuser: 1
+  enduser: 1
+
+two:
+  startphoto: 1
+  endphoto: 1
+  startuser: 1
+  enduser: 1

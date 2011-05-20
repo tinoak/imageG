@@ -16,6 +16,7 @@ class PhotosController < ApplicationController
         user = User.find_by_id(session[:remember_token])
         name = user.name
         @photo = Photo.new(params[:photo])
+                           #[{"name"=>":username in Photo.new"}])
         @photo.username = name
         #username = @photo.username
         # user = User.find_by_name(username)

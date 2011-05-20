@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+
+photo = Photo.create( [ {:username => 'zack'}, {:imagestring => 'zackstring'} ] )
+
+user = User.create( [ {:name => 'zack'}, {:email => 'zackmail@zac.com'}, {:password => 'zack'} ] )

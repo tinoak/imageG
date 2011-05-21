@@ -52,5 +52,6 @@ class PhotosController < ApplicationController
         @title = "ImageGame : my photo collection"
 
     end
+    
 
 end

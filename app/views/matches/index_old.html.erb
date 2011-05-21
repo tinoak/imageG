@@ -1,0 +1,31 @@
+<h1>Open Matches:</h1>
+
+   
+<% @matches.each do |match| %>
+    
+ <%= form_for(match) do |f| %>
+   
+    <% startuser = match.startuser %>
+    <% photoid = match.startphoto %>
+    <% startphoto = Photo.find_by_id(photoid) %>
+   
+    <table>   
+     <tr>
+      <td><%= startphoto.imagestring %></td><td><%= startuser %></td>
+      <td><% f.radio_button (:id, match.id) %></td>
+     </tr>
+    </table> 
+
+   <p>Pick your match photo:</p>
+   <table>  
+    <% @photos.each do |photo| %>
+    <tr>
+     <td><%= photo.imagestring %></td><td><%= match.enduser %></td>
+     <td><%= f.radio_button (:endphoto, photo.id) %></td>
+    </tr>
+    <% end %>
+   <td><%= f.submit "Submit" %></td> 
+
+<% end %>
+<% end %> 
+

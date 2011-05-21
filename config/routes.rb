@@ -25,6 +25,10 @@ Appthee::Application.routes.draw do
     resources :matches
     
     match '/newmatch', :to => 'matches#new'
+    match '/openmatches', :to => 'matches#index'
+    match '/matches/:id', :to => 'matches#show'
+    match '/finishedmatches', :to => 'matches#showall'
+    
     
     
 

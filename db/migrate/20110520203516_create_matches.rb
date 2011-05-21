@@ -1,8 +1,8 @@
 class CreateMatches < ActiveRecord::Migration
   def self.up
     create_table :matches do |t|
-      t.integer :startphoto
-      t.integer :endphoto
+      t.string :startphoto
+      t.string :endphoto
       t.string :startuser
       t.string :enduser
 

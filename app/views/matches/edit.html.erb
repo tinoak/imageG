@@ -1,0 +1,24 @@
+<h1>Complete match with picture:</h1>
+
+
+ <table>
+   <p>Selected picture for match:</p>
+   <%= form_for(@match) do |f| %>
+    <% matchid = @match.id %>
+     
+         
+    <% @photos.each do |photo| %>
+    <tr>
+     <td><%= photo.imagestring %></td>
+     <td><%= f.radio_button (:endphoto, photo.id) %></td>
+    </tr>
+    <% end %>
+   
+</table>
+     <%= f.submit "pick" %>
+    <% end %>
+    
+
+
+
+

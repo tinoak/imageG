@@ -17,10 +17,9 @@
    <p>Available photos:</p>
    <table>  
     <% @photos.each do |photo| %>
-    <%= photoid = photo.id %>
     <tr>
-     <td><%= link_to photo.imagestring, photo %></td>
-     <td><%= f.radio_button (:startphoto, photoid) %></td>
+     <td><%= photo.imagestring %></td>
+     <td><%= f.radio_button (:startphoto, photo.id) %></td>
     </tr>
    <% end %>
 

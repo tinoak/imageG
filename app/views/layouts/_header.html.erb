@@ -3,12 +3,19 @@
    <nav class = "round">
     <ul>
      <% if signed_in? %>
+      <li><%= link_to "finished matches", finishedmatches_path %></li>
+       <li><%= link_to "open matches", openmatches_path %></li>
+       <li><%= link_to "new match", newmatch_path %></li>
+    
        <li><%= link_to "add photo", addphoto_path %></li>
        <li><%= link_to "my photos", myphotos_path %></li>
-       <li><%= link_to "new match", newmatch_path %></li>
+       
        <li><%= link_to "my home", myhome_path %></li>
+       
        <li><%= link_to "  |  ", '#' %></li>
+       
      <% end %>
+     
      <li><%= link_to "about", root_path %></li>
      <% if signed_in? %>
      <li><%= link_to "sign out", signout_path, :method => :delete %></li>

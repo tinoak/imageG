@@ -1,0 +1,33 @@
+
+   <% startuser = @match.startuser %>
+   <% enduser = @match.enduser %>
+   
+   <% startphotoid = @match.startphoto %>
+   <% startphoto = Photo.find_by_id(startphotoid) %>
+
+   <% endphotoid = @match.endphoto %>
+   <% endphoto = Photo.find_by_id(endphotoid) %>
+   
+   <% startimagestring = startphoto.imagestring %>
+    <% endimagestring = endphoto.imagestring %>
+   
+   <h1>Finished Match:</h1>
+   <p></p>
+
+
+    
+   <table>  
+    <tr>
+     <td><%= startimagestring %></td><td><%= endimagestring %></td>
+
+    </tr>
+    <tr>
+     <td><%= startuser %></td>
+     <td><%= enduser %></td>
+    </tr>
+
+
+</table>
+
+
+ 

@@ -1,7 +1,7 @@
    
    <h1>Finished Matches:</h1>
    
-<% @matches.each do |match| %>
+<% @tomatches.each do |match| %>
     
       <% if match.startuser? %>
       <% startuser = match.startuser %>
@@ -12,7 +12,50 @@
    	  <% enduser = match.enduser %>
       <% end %>
 
-      <% if match.endphoto %>
+      <% if match.endphoto? %>
+     <% endphotoid = match.endphoto %>
+     <% endphoto = Photo.find_by_id(endphotoid) %>
+     <% endimagestring = endphoto.imagestring %>
+
+   
+
+
+
+   
+    <table>   
+     <tr>
+
+      <td><%= startimagestring %></td>
+
+
+      <td><%= endimagestring %></td>
+
+     </tr>
+          <tr>
+
+      <td><%= startuser %></td>
+
+      <td><%= enduser %></td>
+      
+     </tr>
+    </table> 
+    <% end %>
+
+
+<% end %> 
+
+<% @frommatches.each do |match| %>
+    
+      <% if match.startuser? %>
+      <% startuser = match.startuser %>
+      <% startphotoid = match.startphoto %>
+      <% startphoto = Photo.find_by_id(startphotoid) %>
+      <% startimagestring = startphoto.imagestring %>
+
+   	  <% enduser = match.enduser %>
+      <% end %>
+
+      <% if match.endphoto? %>
      <% endphotoid = match.endphoto %>
      <% endphoto = Photo.find_by_id(endphotoid) %>
      <% endimagestring = endphoto.imagestring %>

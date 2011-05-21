@@ -104,9 +104,10 @@ class MatchesController < ApplicationController
         @user = User.find_by_id(session[:remember_token])
         name = @user.name
         
-        @photos = Photo.where (:username => name)
+        #@photos = Photo.all
         
-        @matches = Match.where (:enduser => name)
+        @tomatches = Match.where (:startuser => name)
+        @frommatches = Match.where (:enduser => name)
         
         
         @title = "ImageGame : finished matches"

@@ -12,9 +12,17 @@ class MatchesController < ApplicationController
       
         
       #select user's photos
+          
       @user = User.find_by_id(session[:remember_token])
       name = @user.name
       @photos = Photo.where (:username => name)
+      
+      #test if there is a photo in photos array
+      photo = @photos.first
+     
+      if photo.nil?
+      redirect_to '/myhome' 
+      end
 
       
     end
@@ -50,8 +58,9 @@ class MatchesController < ApplicationController
         @user = User.find_by_id(session[:remember_token])
         name = @user.name
         
-        @photos = Photo.where (:username => name)
-        @matches  = Match.where (:enduser => name )
+        @photos = Photo.all
+        @startmatches  = Match.where (:startuser => name)
+        @endmatches  = Match.where (:enduser => name )
         
         
         @title = "ImageGame : my photo collection"
@@ -103,14 +112,21 @@ class MatchesController < ApplicationController
     def showall
         @user = User.find_by_id(session[:remember_token])
         name = @user.name
-        
-        #@photos = Photo.all
+
         
         @tomatches = Match.where (:startuser => name)
         @frommatches = Match.where (:enduser => name)
         
         
         @title = "ImageGame : finished matches"
+        
+    end
+    
+    
+    def destroy
+        
+        Match.find(params[:id]).destroy
+        redirect_to '/finishedmatches'
         
     end
 

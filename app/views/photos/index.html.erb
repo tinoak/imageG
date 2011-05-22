@@ -5,6 +5,7 @@
     <% @photos.each do |photo| %>
     <tr>
      <td><%= link_to photo.imagestring, photo %></td>
+     <td><%= link_to "delete", photo, :method => :delete %>
     </tr>
    <% end %>
 

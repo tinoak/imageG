@@ -1,5 +1,5 @@
    
-   <h1>Finished Matches:</h1>
+<h1>Finished Matches:</h1>
    
 <% @tomatches.each do |match| %>
     
@@ -17,30 +17,19 @@
      <% endphoto = Photo.find_by_id(endphotoid) %>
      <% endimagestring = endphoto.imagestring %>
 
-   
-
-
-
-   
     <table>   
      <tr>
-
       <td><%= startimagestring %></td>
-
-
       <td><%= endimagestring %></td>
-
-     </tr>
-          <tr>
-
+      <td><%= link_to "delete", match, :method => :delete %>
+    </tr>
+    <tr>
       <td><%= startuser %></td>
-
       <td><%= enduser %></td>
-      
      </tr>
     </table> 
+    
     <% end %>
-
 
 <% end %> 
 
@@ -60,30 +49,20 @@
      <% endphoto = Photo.find_by_id(endphotoid) %>
      <% endimagestring = endphoto.imagestring %>
 
-   
-
-
-
-   
     <table>   
      <tr>
-
       <td><%= startimagestring %></td>
-
-
       <td><%= endimagestring %></td>
-
+      <td><%= link_to "delete", match, :method => :delete %>
      </tr>
-          <tr>
-
+     
+     <tr>
       <td><%= startuser %></td>
-
-      <td><%= enduser %></td>
-      
+      <td><%= enduser %></td> 
      </tr>
-    </table> 
+    </table>
+    
     <% end %>
-
 
 <% end %> 
 

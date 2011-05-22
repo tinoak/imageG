@@ -1,9 +1,8 @@
 <h1>Open Matches:</h1>
-
-   
-<% @matches.each do |match| %>
     
-    <% if match.enduser == @user.name && !match.endphoto? %>
+<% @endmatches.each do |match| %>
+    
+    <% if !match.endphoto? %>
     <% startuser = match.startuser %>
     <% photoid = match.startphoto %>
     <% startphoto = Photo.find_by_id(photoid) %>
@@ -16,7 +15,24 @@
      </tr>
     </table> 
     <% end %>
+    
+<% end %>
+  
+<% @startmatches.each do |match| %>
+    
+    <% if !match.endphoto? %>
+    <% enduser = match.enduser %>
+    <% photoid = match.startphoto %>
+    <% startphoto = Photo.find_by_id(photoid) %>
    
+    <table>   
+     <tr>
+      <td><%= link_to startphoto.imagestring, edit_match_path(match) %></td>
+      <td>to: <%= enduser %></td>
+
+     </tr>
+    </table> 
+    <% end %>
 
 
 <% end %> 

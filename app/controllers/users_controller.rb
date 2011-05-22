@@ -18,10 +18,24 @@ class UsersController < ApplicationController
     
     def show
         @user = User.find_by_id(session[:remember_token])
-        #@user = User.find(params[:id])
-        #@user = User.find(params[:id])
-        #@user = User.find(2)
+        name = @user.name
+        
+        #get tomatches,frommatches and find open matches from them -> give count
+        tomatches = Match.where (:startuser => name)
+        opentomatches = tomatches.where (:endphoto => nil)
+        frommatches = Match.where (:enduser => name)
+        openfrommatches = frommatches.where (:endphoto => nil)
+        
+        #get all user photos and get count
+        @photos = Photo.where (:username => name)
+        
+        @tocount = opentomatches.count
+        @fromcount = openfrommatches.count
+        @photoscount = @photos.count
+        
+        
         @title = @user.name
     end
+
 
 end

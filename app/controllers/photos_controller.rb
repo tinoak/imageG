@@ -53,5 +53,26 @@ class PhotosController < ApplicationController
 
     end
     
+    def destroy
+        
+        delphoto = Photo.find(params[:id])
+        
+        delpstartmatches = Match.where (:startphoto => delphoto)
+        
+        delpstartmatches.each do |startmatch|
+            startmatch.destroy
+            end
+        delpendmatches = Match.where(:endphoto => delphoto)
+        
+        delpendmatches.each do |endmatch|
+            endmatch.destroy
+        end
+        
+        delphoto.destroy
+        #  Photo.find(params[:id]).destroy
+        redirect_to '/myphotos'
+        
+    end
+    
 
 end

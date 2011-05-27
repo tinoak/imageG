@@ -22,9 +22,9 @@ class PhotosController < ApplicationController
         # user = User.find_by_name(username)
         #if user != nil
         if @photo.save
-           redirect_to '/myphotos'
+            redirect_to '/myphotos'
              else
-             @title = "ImageGame : upload a photo"
+             @title = "uploaded a photo but didnt save"
              render 'new'
         end
         # else

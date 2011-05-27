@@ -1,17 +1,23 @@
-<h1>Upload an Imagestring</h1>
+  <br/>
+  <br/>
+  <h1>Upload an Image</h1>
 
 <% user = User.find_by_id(session[:remember_token]) %>
-<%= user.name %>
 
-<%= form_for(@photo) do |f| %>
+<%= form_for @photo, :html => { :multipart => true } do |f| %>
 
+  <br/>
+  <br/>
+  
  <div class='field'>
-  <%= f.label :imagestring %><br/>
-  <%= f.text_field :imagestring %>
+  <%= f.file_field :image %>
  </div>
  
+   <br/>
+  <br/>
+ 
   <div class='actions'>
-  <%= f.submit "Load Imagestring" %><br/>
+  <%= f.submit "Upload file" %><br/>
  </div>
 
 <% end %>

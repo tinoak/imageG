@@ -1,15 +1,17 @@
-
+  <br/>
+  <br/>
    <h1>My Photos</h1>
-   
+   <br/>
+<div class = "smalltable">  
 <table>  
     <% @photos.each do |photo| %>
     <tr>
-     <td><%= link_to photo.imagestring, photo %></td>
-     <td><%= link_to "delete", photo, :method => :delete %>
+     <td><%= link_to image_tag (photo.image.url (:small)), photo_path(photo) %></td>
+     <td><%= link_to "delete", photo, :method => :delete %></td>
     </tr>
    <% end %>
 
 </table>
-   
+</div>   
 
  

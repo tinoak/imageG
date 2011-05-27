@@ -1,5 +1,10 @@
-   
+  <br/>
+  <br/>
 <h1>Finished Matches:</h1>
+  <br/>
+  <br/>
+    <br/>
+  <br/>
    
 <% @tomatches.each do |match| %>
     
@@ -7,7 +12,6 @@
       <% startuser = match.startuser %>
       <% startphotoid = match.startphoto %>
       <% startphoto = Photo.find_by_id(startphotoid) %>
-      <% startimagestring = startphoto.imagestring %>
 
    	  <% enduser = match.enduser %>
       <% end %>
@@ -15,17 +19,19 @@
       <% if match.endphoto? %>
      <% endphotoid = match.endphoto %>
      <% endphoto = Photo.find_by_id(endphotoid) %>
-     <% endimagestring = endphoto.imagestring %>
 
     <table>   
      <tr>
-      <td><%= startimagestring %></td>
-      <td><%= endimagestring %></td>
-      <td><%= link_to "delete", match, :method => :delete %>
+      <td><%= link_to image_tag (startphoto.image.url (:normal)), match_path(match) %>
+      <%= link_to image_tag (endphoto.image.url (:normal)), match_path(match) %></td>
     </tr>
-    <tr>
-      <td><%= startuser %></td>
-      <td><%= enduser %></td>
+    <tr> 
+      <td align="right"><%= link_to "delete:", match, :method => :delete %>
+      <%= startuser %> > <%= enduser %>
+      </td>
+     </tr>
+    <tr> 
+      <td><%= image_tag "/images/spacer.gif" %> </td>
      </tr>
     </table> 
     
@@ -33,13 +39,14 @@
 
 <% end %> 
 
+
+
 <% @frommatches.each do |match| %>
     
       <% if match.startuser? %>
       <% startuser = match.startuser %>
       <% startphotoid = match.startphoto %>
       <% startphoto = Photo.find_by_id(startphotoid) %>
-      <% startimagestring = startphoto.imagestring %>
 
    	  <% enduser = match.enduser %>
       <% end %>
@@ -47,18 +54,20 @@
       <% if match.endphoto? %>
      <% endphotoid = match.endphoto %>
      <% endphoto = Photo.find_by_id(endphotoid) %>
-     <% endimagestring = endphoto.imagestring %>
 
     <table>   
      <tr>
-      <td><%= startimagestring %></td>
-      <td><%= endimagestring %></td>
-      <td><%= link_to "delete", match, :method => :delete %>
+      <td><%= link_to image_tag (startphoto.image.url (:normal)), match_path(match) %>
+      <%= link_to image_tag (endphoto.image.url (:normal)), match_path(match) %></td>
      </tr>
      
-     <tr>
-      <td><%= startuser %></td>
-      <td><%= enduser %></td> 
+     <tr> 
+      <td align="right"><%= link_to "delete:", match, :method => :delete %>
+      <%= startuser %> > <%= enduser %></td>
+      
+     </tr>
+         <tr> 
+      <td><%= image_tag "/images/spacer.gif" %> </td>
      </tr>
     </table>
     

@@ -1,35 +1,40 @@
-.container {width: 710px;}
+.container {width: 1200px; background-color: #333}
 
-body {background: #cff;}
+.smalltable {width: 300px; background-color: #333}
+
+body {background: #333;}
 
 header {padding-top: 20px;}
 
 section {
  margin-top: 1em;
  font-size: 120%;
+ color: #999;
  padding: 20px;
- background: #fff;
+ background: #333;
 }
 
-section h1 {font-size: 200%}
+section h1 {font-size: 200%;
+            color: #999;}
 
 /* Links */
 
-a {color: #09c;
+a {color: #999;
    text-decoration: none;}
    
 a:hover {
+ color: #white;
  text-decoration: underline;
 }
    
 /* Navigation */
 
-nav {float: right;
+nav {float: left;
      margin-top: 20px;
 }
 
 nav {
- background-color: white;
+ background-color: #333;
  padding: 0 0.7em;
  white-space: nowrap;
 }
@@ -60,3 +65,7 @@ nav ul li a: hover {
  -webkit-border-radius: 10px;
  border-radius: 10px;
 }
+
+/* Table Rows */
+
+tbody tr:nth-child(even) td, tbody tr.even td {background:#333;}

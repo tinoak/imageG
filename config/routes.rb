@@ -15,7 +15,7 @@ Appthee::Application.routes.draw do
     
     match '/myphotos', :to => 'photos#index'
     match '/addphoto' , :to => 'photos#new'
-    # match '/selectedphoto' , :to => 'photos#show'
+    match '/selectedphoto' , :to => 'photos#show'
     
     resources :sessions, :only => [:new, :create, :destroy]
     

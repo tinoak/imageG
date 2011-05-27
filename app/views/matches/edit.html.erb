@@ -1,6 +1,8 @@
+  <br/>
+  <br/>
 <h1>Complete match with picture:</h1>
 
-
+<div class ="smalltable">
  <table>
    <p>Selected picture for match:</p>
    <%= form_for(@match) do |f| %>
@@ -9,9 +11,10 @@
          
     <% @photos.each do |photo| %>
     <tr>
-     <td><%= photo.imagestring %></td>
+     <td><%= image_tag photo.image.url (:small) %></td>
      <td><%= f.radio_button (:endphoto, photo.id) %></td>
     </tr>
+</div>
     <% end %>
    
 </table>

@@ -7,27 +7,23 @@
 
    <% endphotoid = @match.endphoto %>
    <% endphoto = Photo.find_by_id(endphotoid) %>
-   
-   <% startimagestring = startphoto.imagestring %>
-    <% endimagestring = endphoto.imagestring %>
-   
-   <h1>Finished Match:</h1>
-   <p></p>
 
 
     
-   <table>  
+   <table> 
+            <tr> 
+      <td><%= image_tag "/images/spacer.gif" %> </td>
+     </tr>
+
     <tr>
-     <td><%= startimagestring %></td><td><%= endimagestring %></td>
+     <td><%= link_to image_tag (startphoto.image.url (:big)), '/finishedmatches'%>
+     <%= link_to image_tag (endphoto.image.url (:big)), '/finishedmatches' %></td>
 
-    </tr>
-    <tr>
-     <td><%= startuser %></td>
-     <td><%= enduser %></td>
-    </tr>
-
-
-</table>
+    </tr>    <tr> 
+      <td><%= image_tag "/images/spacer.gif" %> </td>
+     </tr>
 
 
- 
+   </table>
+
+

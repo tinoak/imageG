@@ -1,19 +1,22 @@
+  <br/>
+  <br/>
 <h1>Open Matches:</h1>
-    
+<br/>
 <% @endmatches.each do |match| %>
     
     <% if !match.endphoto? %>
     <% startuser = match.startuser %>
     <% photoid = match.startphoto %>
     <% startphoto = Photo.find_by_id(photoid) %>
-   
+<div class = "smalltable">  
     <table>   
      <tr>
-      <td><%= link_to startphoto.imagestring, edit_match_path(match) %></td>
+      <td><%= link_to image_tag (startphoto.image.url (:small)), edit_match_path(match) %></td>
       <td>from: <%= startuser %></td>
 
      </tr>
     </table> 
+</div>
     <% end %>
     
 <% end %>
@@ -24,14 +27,15 @@
     <% enduser = match.enduser %>
     <% photoid = match.startphoto %>
     <% startphoto = Photo.find_by_id(photoid) %>
-   
+ <div class = "smalltable">   
     <table>   
      <tr>
-      <td><%= link_to startphoto.imagestring, edit_match_path(match) %></td>
+      <td><%= link_to image_tag (startphoto.image.url (:small)), edit_match_path(match) %></td>
       <td>to: <%= enduser %></td>
 
      </tr>
     </table> 
+    </div>
     <% end %>
 
 

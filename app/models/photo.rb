@@ -9,7 +9,9 @@ class Photo < ActiveRecord::Base
     
     
     has_attached_file :image, :url => "/:class/:attachment/:id/:style_:basename.:extension",  
-                              :styles => { :big => "460x460^", :normal => "360x360^", :small => ["180x180^", :jpg] }, 
-                              :convert_options => {:all => '-auto-orient' }
+                              :styles => { :original => "460x460^", :normal => "360x360^", :small => "180x180^" }, 
+                              :convert_options => {:all => '-auto-orient' },
+    :storage => :s3,
+    :s3_credentials => S3_CREDENTIALS 
     
 end

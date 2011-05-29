@@ -3,6 +3,23 @@
 <h1>Start a new Match:</h1>
   <br/>
   <br/>
+  
+
+   <p>Select a photo:</p>
+
+<div class = "smalltable">
+   <table>  
+    <% @photos.each do |photo| %>
+    <tr>
+     <td><%= image_tag photo.image.url (:small) %></td>
+     <td><%= f.radio_button (:startphoto, photo.id) %></td>
+    </tr>
+   <% end %>
+
+</table>
+</div>
+  <br/>
+  <br/>
 
 <%= form_for(@match) do |f| %>
 <div class = "smalltable">
@@ -18,21 +35,7 @@
    </table>
    </div>
  
-        <br/>
-  <br/>
-   <p>Select a photo:</p>
 
-<div class = "smalltable">
-   <table>  
-    <% @photos.each do |photo| %>
-    <tr>
-     <td><%= image_tag photo.image.url (:small) %></td>
-     <td><%= f.radio_button (:startphoto, photo.id) %></td>
-    </tr>
-   <% end %>
-
-</table>
-</div>
 <%= f.submit "Submit" %><br/>
 
 <% end %>

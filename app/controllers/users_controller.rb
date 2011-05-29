@@ -10,6 +10,7 @@ class UsersController < ApplicationController
         if @user.save
            sign_in @user
            redirect_to @user
+           UserMailer.new_user_email(@user).deliver
         else
             @title = "ImageGame : sign up!"
             render 'new'

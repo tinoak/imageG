@@ -37,14 +37,17 @@ class MatchesController < ApplicationController
         @match.startuser = username
         
         @match.save
+        endusername = @match.enduser
+        # @user = User.where (:name => endusername)
         #username = @photo.username
         # user = User.find_by_name(username)
         #if user != nil
         if @match.save
-         redirect_to '/openmatches'
+            redirect_to '/openmatches'
+            #MatchMailer.new_match_email(endusername).deliver
          else
-         @title = "ImageGame : new match"
-         render 'new'
+            @title = "ImageGame : new match"
+            render 'new'
         end
         # else
         # @title = user.name

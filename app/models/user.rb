@@ -1,3 +1,4 @@
+require 'digest'
 class User < ActiveRecord::Base
     
     attr_accessor :password
@@ -37,7 +38,7 @@ class User < ActiveRecord::Base
       end
     
       def encrypt(string)
-          string
+          Digest::SHA2.hexdigest(string)
       end
     
 end

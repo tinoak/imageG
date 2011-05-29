@@ -6,7 +6,7 @@
   
 
    <p>Select a photo:</p>
-
+<%= form_for(@match) do |f| %>
 <div class = "smalltable">
    <table>  
     <% @photos.each do |photo| %>
@@ -21,7 +21,7 @@
   <br/>
   <br/>
 
-<%= form_for(@match) do |f| %>
+
 <div class = "smalltable">
    <table>
    <p>Select a friend:</p>

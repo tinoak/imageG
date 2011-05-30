@@ -3,7 +3,7 @@ class MatchMailer < ActionMailer::Base
     
     def new_match_email (match)
         @fromuser = match.startuser
-        @url = "http://severe-river-484.heroku.com/"
+        @url = "http://hollow-meadow-272.heroku.com"
         mail ( :to => match.endemail,
                :subject => "You've been challanged to an ImageGame" )
     end

@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
     
     def new_user_email (user)
         @user = user
-        @url = "http://severe-river-484.heroku.com/"
+        @url = "http://hollow-meadow-272.heroku.com/"
         mail ( :to => user.email,
                :subject => "Thanks for signing up at ImageGame" )
     end

@@ -26,10 +26,9 @@
    <table>
    <p>Select a friend:</p>
    <% @users.each do |user| %>
-   <% username = user.name %>
     <tr>
      <td><%= link_to user.name, user_path(user) %></td>
-     <td><%= f.radio_button (:enduser, username) %></td>
+     <td><%= f.radio_button (:enduser, user.name ) %></td>
     </tr>
      <% end %>
    </table>

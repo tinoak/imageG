@@ -4,7 +4,9 @@ class CreateMatches < ActiveRecord::Migration
       t.string :startphoto
       t.string :endphoto
       t.string :startuser
+      t.string :startemail
       t.string :enduser
+      t.string :endemail
 
       t.timestamps
     end

@@ -29,30 +29,25 @@ class MatchesController < ApplicationController
     
     def create
         
-        #@photo = Photo.new(params[:photo])
         user = User.find_by_id(session[:remember_token])
-        username = user.name
         @match = Match.new(params[:match])
-        #[{"name"=>":username in Photo.new"}])
-        @match.startuser = username
+        @match.startuser = user.name
+        @match.startemail = user.email
+        
+        endusername = @match.enduser
+        @enduser = User.find_by_name(endusername)
+        @match.endemail = @enduser.email
         
         @match.save
-        endusername = @match.enduser
-        # @user = User.where (:name => endusername)
-        #username = @photo.username
-        # user = User.find_by_name(username)
-        #if user != nil
+        
         if @match.save
             redirect_to '/openmatches'
-            #MatchMailer.new_match_email(endusername).deliver
+            MatchMailer.new_match_email(@match).deliver
          else
             @title = "ImageGame : new match"
             render 'new'
         end
-        # else
-        # @title = user.name
-        #  render 'new'
-        #end
+
         
     end
     

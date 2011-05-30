@@ -16,7 +16,9 @@ ActiveRecord::Schema.define(:version => 20110520203516) do
     t.integer  "startphoto"
     t.integer  "endphoto"
     t.string   "startuser"
+    t.string   "startemail"
     t.string   "enduser"
+    t.string   "endemail"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
